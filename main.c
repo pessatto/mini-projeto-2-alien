@@ -93,7 +93,7 @@ void trocarParesImpares (char *s)
 {
     int i;
     char temp;
-    int limite = strlen (s);
+    int limite = meu_strlen (s);
 
     limite = (limite % 2 == 0) ? limite : limite - 1;
     for (i = 0; i < limite; i+=2)
@@ -128,7 +128,7 @@ void trocarMetades (char *s)
 {
     int i;
     char temp;
-    int tam = strlen(s);
+    int tam = meu_strlen(s);
     int metade = tam / 2;
 
     metade = (tam % 2 == 0) ? metade : metade + 1;
