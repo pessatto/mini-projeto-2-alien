@@ -1,5 +1,20 @@
 #include <stdio.h>
 
+
+//Função Auxiliar Tamanho da String
+
+int strlen (char *s)
+{
+    int tam = 0, j = 0;
+    while(s[j] != '\0')
+    {
+        tam ++;
+        j++;
+    }
+    return tam;
+}
+
+
 // Função 1
 void inverter(char *s)
 {
@@ -41,10 +56,27 @@ void inverterCaixa(char *s)
     }
 }
 
+//Função 6
+void trocarMetades (char *s)
+{
+    int i;
+    char temp;
+    int tam = strlen(s);
+    int metade = tam / 2;
+    metade = (tam % 2 == 0) ? metade : metade + 1;
+    for(i = 0; i < metade - 1; i++)
+    {
+        temp = s[i];
+        s[i] = s[i + metade];
+        s[i + metade] = temp;
+    }
+
+}
+
 
 int main()
 {
-    int Operacao;
+    int Operacao, tamanho_string = 0, j = 0;
     char string[10000];
 
     scanf("%[^\n]", string);
@@ -76,7 +108,7 @@ int main()
             break;
             
         case 6:
-            /* Trocar Metades */
+            trocarMetades(string);
             break;
         
         default:
@@ -87,6 +119,7 @@ int main()
 
     //imprimir resultado
     printf("%s\n", string);
+
 
 
     return 0;
