@@ -68,7 +68,7 @@ int main()
             break;
             
         case 4:
-            /* Inverter Maiusc/Minusc */
+            inverterCaixa(string);
             break;
 
         case 5:
