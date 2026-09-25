@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Função Auxiliar Tamanho da String
-int strlen(char *s)
+int meu_strlen(char *s)
 {
     int tam = 0, j = 0;
     while (s[j] != '\0')
@@ -35,7 +35,7 @@ void inverter(char *s)
     }
 }
 
-//Função 2
+// Função 2
 void deslocar(char *s, int n)
 {
     int i, valor_passou, valor_coube;
@@ -111,7 +111,7 @@ void trocarMetades(char *s)
 {
     int i;
     char temp;
-    int tam = strlen(s);
+    int tam = meu_strlen(s);
     int metade = tam / 2;
     metade = (tam % 2 == 0) ? metade : metade + 1;
     for (i = 0; i < metade - 1; i++)
