@@ -88,6 +88,23 @@ void deslocar(char *s, int n)
     }
 }
 
+//Função 3
+void trocarParesImpares (char *s)
+{
+    int i;
+    char temp;
+    int limite = strlen (s);
+
+    limite = (limite % 2 == 0) ? limite : limite - 1;
+    for (i = 0; i < limite; i+=2)
+    {
+        temp = s[i];
+        s[i] = s[i + 1];
+        s[i + 1] = temp;
+    }
+
+}
+
 // Função 4
 void inverterCaixa(char *s)
 {
@@ -106,20 +123,34 @@ void inverterCaixa(char *s)
     }
 }
 
-// Função 6
-void trocarMetades(char *s)
+//Função 6
+void trocarMetades (char *s)
 {
     int i;
     char temp;
-    int tam = meu_strlen(s);
+    int tam = strlen(s);
     int metade = tam / 2;
+
     metade = (tam % 2 == 0) ? metade : metade + 1;
-    for (i = 0; i < metade - 1; i++)
+
+    if (tam % 2 == 0)
+    {
+       for(i = 0; i < metade; i++)
     {
         temp = s[i];
         s[i] = s[i + metade];
         s[i + metade] = temp;
+    } 
     }
+    else {
+        for(i = 0; i < metade - 1; i++)
+        {
+            temp = s[i];
+            s[i] = s[i + metade];
+            s[i + metade] = temp;
+        }
+    }
+
 }
 
 int main()
@@ -144,7 +175,7 @@ int main()
             break;
 
         case 3:
-            /* Trocar Pares */
+            trocarParesImpares(string);
             break;
 
         case 4:
