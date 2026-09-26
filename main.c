@@ -188,9 +188,11 @@ int main()
     int Operacao, deslocar_qntd, rotacionar_qntd;
     char string[10000];
 
+    // Leitura de entradas
     scanf("%[^\n]", string);
     scanf("%d", &Operacao);
 
+    // Uso das funções
     while (Operacao != 0)
     {
         switch (Operacao)
@@ -227,7 +229,7 @@ int main()
         scanf("%d", &Operacao);
     }
 
-    // imprimir resultado
+    // Imprimir resposta
     printf("%s\n", string);
 
     return 0;
