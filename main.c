@@ -18,11 +18,7 @@ void inverter(char *s)
     int i = 0, j = 0;
     char temp;
 
-    while (*(s + j) != '\0')
-    {
-        j++;
-    }
-    j--;
+    j = meu_strlen(s) - 1;
 
     while (i < j)
     {
@@ -188,13 +184,13 @@ void trocarMetades(char *s)
 
 int main()
 {
-    int Operacao, deslocar_qntd, rotacionar_qntd;
+    int Operacao, deslocar_qntd, rotacionar_qntd, rodar = 1;
     char string[10000];
 
     scanf("%[^\n]", string);
     scanf("%d", &Operacao);
 
-    while (Operacao != 0)
+    while (Operacao != 0 && rodar == 1)
     {
         switch (Operacao)
         {
@@ -225,9 +221,13 @@ int main()
             break;
 
         default:
+            rodar = 0;
             break;
         }
-        scanf("%d", &Operacao);
+        if (rodar == 1)
+        {
+            scanf("%d", &Operacao);
+        }
     }
 
     // imprimir resultado
