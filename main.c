@@ -39,8 +39,10 @@ void inverter(char *s)
 void deslocar(char *s, int n)
 {
     int i, valor_passou, valor_coube;
-    int n_letra = n % 26;
-    int n_digito = n % 10;
+    int n_letra = ((n % 26) + 26) % 26;  /* evita rotações completas */
+    int n_digito = ((n % 10) + 10) % 10; /* em vez de deslocar pra esquerda,
+    vai deslocar a mesma quantidade para a direita */
+
     for (i = 0; *(s + i) != '\0'; i++)
     {
         if (*(s + i) >= 'a' && *(s + i) <= 'z')
@@ -121,7 +123,7 @@ void inverterCaixa(char *s)
         i++;
     }
 }
-// Função 5 
+// Função 5
 void rotacionar(char *s, int n)
 {
     int tam = meu_strlen(s);
@@ -137,7 +139,8 @@ void rotacionar(char *s, int n)
 
     if (n < 0)
     {
-        n += tam; // em vez de rodar pra esquerda, vai rodar a mesma quantidade para a direita
+        n += tam; /* em vez de rodar pra esquerda, vai rodar a mesma
+        quantidade para a direita */
     }
 
     for (i = 0; i < n; i++)
@@ -188,11 +191,9 @@ int main()
     int Operacao, deslocar_qntd, rotacionar_qntd;
     char string[10000];
 
-    // Leitura de entradas
     scanf("%[^\n]", string);
     scanf("%d", &Operacao);
 
-    // Uso das funções
     while (Operacao != 0)
     {
         switch (Operacao)
@@ -229,7 +230,7 @@ int main()
         scanf("%d", &Operacao);
     }
 
-    // Imprimir mensagem descriptografada
+    // imprimir resultado
     printf("%s\n", string);
 
     return 0;
