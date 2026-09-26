@@ -7,7 +7,13 @@
 
 ## Como compilar e rodar
 
-Compilar:
+Primeiro entra na pasta onde está o `main.c`:
+
+```
+cd caminho/para/a/pasta/do/projeto
+```
+
+Compilamos com gcc:
 
 ```
 gcc main.c -o main
