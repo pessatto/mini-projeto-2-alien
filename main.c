@@ -88,21 +88,20 @@ void deslocar(char *s, int n)
     }
 }
 
-//Função 3
-void trocarParesImpares (char *s)
+// Função 3
+void trocarParesImpares(char *s)
 {
     int i;
     char temp;
-    int limite = meu_strlen (s);
+    int limite = meu_strlen(s);
 
     limite = (limite % 2 == 0) ? limite : limite - 1;
-    for (i = 0; i < limite; i+=2)
+    for (i = 0; i < limite; i += 2)
     {
         temp = s[i];
         s[i] = s[i + 1];
         s[i + 1] = temp;
     }
-
 }
 
 // Função 4
@@ -122,9 +121,40 @@ void inverterCaixa(char *s)
         i++;
     }
 }
+// Função 5
+void rotacionar(char *s, int n)
+{
+    int tam = meu_strlen(s);
+    int i, j;
+    char ultimo;
 
-//Função 6
-void trocarMetades (char *s)
+    if (tam <= 1)
+    {
+        return;
+    }
+
+    n = n % tam; // evita rotações completas
+
+    if (n < 0)
+    {
+        n += tam; // em vez de rodar pra esquerda, vai rodar a mesma quantidade para a direita
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        ultimo = *(s + tam - 1);
+
+        for (j = tam - 1; j > 0; j--)
+        {
+            *(s + j) = *(s + j - 1);
+        }
+
+        *(s) = ultimo;
+    }
+}
+
+// Função 6
+void trocarMetades(char *s)
 {
     int i;
     char temp;
@@ -135,27 +165,27 @@ void trocarMetades (char *s)
 
     if (tam % 2 == 0)
     {
-       for(i = 0; i < metade; i++)
-    {
-        temp = s[i];
-        s[i] = s[i + metade];
-        s[i + metade] = temp;
-    } 
-    }
-    else {
-        for(i = 0; i < metade - 1; i++)
+        for (i = 0; i < metade; i++)
         {
             temp = s[i];
             s[i] = s[i + metade];
             s[i + metade] = temp;
         }
     }
-
+    else
+    {
+        for (i = 0; i < metade - 1; i++)
+        {
+            temp = s[i];
+            s[i] = s[i + metade];
+            s[i + metade] = temp;
+        }
+    }
 }
 
 int main()
 {
-    int Operacao, tamanho_string = 0, j = 0, deslocar_qntd;
+    int Operacao, deslocar_qntd, rotacionar_qntd;
     char string[10000];
 
     scanf("%[^\n]", string);
@@ -183,7 +213,8 @@ int main()
             break;
 
         case 5:
-            /* Rotacionar msg */
+            scanf("%d", &rotacionar_qntd);
+            rotacionar(string, rotacionar_qntd);
             break;
 
         case 6:
