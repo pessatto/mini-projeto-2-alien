@@ -229,7 +229,7 @@ int main()
         scanf("%d", &Operacao);
     }
 
-    // Imprimir resposta
+    // Imprimir mensagem descriptografada
     printf("%s\n", string);
 
     return 0;
