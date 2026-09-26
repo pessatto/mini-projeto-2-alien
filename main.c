@@ -121,7 +121,7 @@ void inverterCaixa(char *s)
         i++;
     }
 }
-// Função 5
+// Função 5 
 void rotacionar(char *s, int n)
 {
     int tam = meu_strlen(s);
